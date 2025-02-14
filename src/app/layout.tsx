@@ -10,7 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Perso - AI PPT BUILDER",
+  title: "Perso - AI Presentation Maker",
   description: "Make Presentation with Ease",
 };
 
@@ -22,11 +22,11 @@ export default function RootLayout({
   return (
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
-        <body className={inter.className} suppressHydrationWarning>
+        <body className={inter.className}>
           <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
             {children}
+            <Toaster />
           </ThemeProvider>
-          <Toaster />
         </body>
       </html>
     </ClerkProvider>
