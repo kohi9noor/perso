@@ -33,7 +33,7 @@ const AppSidebar = ({
           className="data-[state=open]:text-sidebar-accent-foreground"
         >
           <div className=" flex items-center justify-center rounded-lg text-sidebar-primary-foreground">
-            <span className=" text-primary text-3xl font-medium">Perso</span>
+            <span className=" text-primary text-3xl font-medium">Preso</span>
           </div>
         </SidebarMenuButton>
       </SidebarHeader>

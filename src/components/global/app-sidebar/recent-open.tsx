@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
@@ -7,17 +8,24 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import { Project } from "@prisma/client";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+
 type Props = {
   recentProjects: Project[];
 };
 const RecentOpen = ({ recentProjects }: Props) => {
+  const router = useRouter();
+
   const handleClickProject = (projectId: string, slides: any) => {
     if (!projectId || !slides) {
       toast.error("Project not found", {
         description: "Please try again",
       });
+      return;
     }
+
+    router.push(`/presentation/${projectId}`);
   };
 
   return (
