@@ -1,4 +1,6 @@
 "use client";
+
+import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   SidebarGroup,
@@ -14,6 +16,7 @@ import { toast } from "sonner";
 type Props = {
   recentProjects: Project[];
 };
+
 const RecentOpen = ({ recentProjects }: Props) => {
   const router = useRouter();
 
@@ -24,7 +27,6 @@ const RecentOpen = ({ recentProjects }: Props) => {
       });
       return;
     }
-
     router.push(`/presentation/${projectId}`);
   };
 
@@ -33,27 +35,25 @@ const RecentOpen = ({ recentProjects }: Props) => {
       <SidebarGroupLabel>Recently Opened</SidebarGroupLabel>
       <SidebarMenu>
         {recentProjects.length > 0
-          ? recentProjects.map((project) => {
-              return (
-                <SidebarMenuItem key={project.id}>
-                  <SidebarMenuButton
-                    className=" "
-                    asChild
-                    tooltip={project.title}
+          ? recentProjects.map((project) => (
+              <SidebarMenuItem key={project.id}>
+                <SidebarMenuButton
+                  className=" "
+                  asChild
+                  tooltip={project.title}
+                >
+                  <Button
+                    className=" text-xs items-center justify-start"
+                    onClick={() =>
+                      handleClickProject(project.id, project.slides)
+                    }
+                    variant={"link"}
                   >
-                    <Button
-                      className=" text-xs items-center justify-start"
-                      onClick={() =>
-                        handleClickProject(project.id, project.slides)
-                      }
-                      variant={"link"}
-                    >
-                      <span>{project.title}</span>
-                    </Button>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              );
-            })
+                    <span>{project.title}</span>
+                  </Button>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))
           : ""}
       </SidebarMenu>
     </SidebarGroup>

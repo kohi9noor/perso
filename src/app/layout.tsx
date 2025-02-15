@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/provider/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
+
 const inter = Inter({
   subsets: ["latin"],
 });
@@ -23,7 +24,7 @@ export default function RootLayout({
     <ClerkProvider appearance={{ baseTheme: dark }}>
       <html lang="en">
         <body className={inter.className}>
-          <ThemeProvider attribute={"class"} defaultTheme="system" enableSystem>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
             <Toaster />
           </ThemeProvider>
