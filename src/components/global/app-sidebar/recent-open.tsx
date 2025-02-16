@@ -12,21 +12,24 @@ import {
 import { Project } from "@prisma/client";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-
+import { useSlidesStore } from "@/store/slides";
+import { JsonValue } from "@prisma/client/runtime/library";
 type Props = {
   recentProjects: Project[];
 };
 
 const RecentOpen = ({ recentProjects }: Props) => {
   const router = useRouter();
+  const { setSlides } = useSlidesStore();
 
-  const handleClickProject = (projectId: string, slides: any) => {
+  const handleClickProject = (projectId: string, slides: JsonValue) => {
     if (!projectId || !slides) {
       toast.error("Project not found", {
         description: "Please try again",
       });
       return;
     }
+    setSlides(JSON.parse(JSON.stringify(slides)));
     router.push(`/presentation/${projectId}`);
   };
 

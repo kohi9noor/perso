@@ -11,6 +11,7 @@ import {
 import NavMain from "./nav-main";
 import { data } from "@/lib/constants";
 import RecentOpen from "./recent-open";
+import NavFooter from "./nav-footer";
 
 const AppSidebar = ({
   recentProjects,
@@ -41,7 +42,9 @@ const AppSidebar = ({
         <NavMain navigation={data.navigation} />
         <RecentOpen recentProjects={recentProjects} />
       </SidebarContent>
-      <SidebarFooter />
+      <SidebarFooter>
+        <NavFooter />
+      </SidebarFooter>
     </Sidebar>
   );
 };
