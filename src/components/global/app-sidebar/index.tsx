@@ -12,10 +12,10 @@ import NavMain from "./nav-main";
 import { data } from "@/lib/constants";
 import RecentOpen from "./recent-open";
 import NavFooter from "./nav-footer";
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 
 const AppSidebar = ({
   recentProjects,
-  user,
   ...props
 }: {
   recentProjects: Project[];
@@ -28,17 +28,22 @@ const AppSidebar = ({
       collapsible="icon"
       {...props}
     >
-      <SidebarHeader className="pt-6 px-3 pb-0">
+      <SidebarHeader className="pt-6 px-2 pb-0">
         <SidebarMenuButton
           size={"lg"}
           className="data-[state=open]:text-sidebar-accent-foreground"
         >
-          <div className=" flex items-center justify-center rounded-lg text-sidebar-primary-foreground">
-            <span className=" text-primary text-3xl font-medium">Preso</span>
+          <div className="flex aspect-square size-8 items-center justify-center rounded-lg text-sidebar-primary-foreground">
+            <Avatar className="h-6 w-6 p-1 rounded-lg bg-slate-200">
+              <AvatarImage src={"/logo.png"} alt={"logo"} />
+            </Avatar>
           </div>
+          <span className="truncate text-primary text-xl font-semibold">
+            Perso
+          </span>
         </SidebarMenuButton>
       </SidebarHeader>
-      <SidebarContent className=" px-3 mt-10 gap-y-6">
+      <SidebarContent className="px-2 mt-10 gap-y-6">
         <NavMain navigation={data.navigation} />
         <RecentOpen recentProjects={recentProjects} />
       </SidebarContent>

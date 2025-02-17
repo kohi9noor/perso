@@ -11,7 +11,7 @@
   "dependencies": {
     "@clerk/nextjs": "^6.11.2",
     "@clerk/themes": "^2.2.17",
-    "@hookform/resolvers": "^4.0.0",
+    "@hookform/resolvers": "^4.1.0",
     "@prisma/client": "^6.3.1",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -60,7 +60,7 @@
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "vaul": "^1.1.2",
-    "zod": "^3.24.1",
+    "zod": "^3.24.2",
     "zustand": "^5.0.3"
   },
   "devDependencies": {
